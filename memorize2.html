@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <link rel="stylesheet" href="memorize2.css">
+    <div id="visible">
+        <p>Instructions: type or paste the text that you would like to memorize into the box below. Some words will be removed and your job is to type the removed words into the blanks. The harder the difficulty, the more removed words. Enjoy!</p>
+        <form>
+            <textarea id="input"></textarea>
+        </form>
+        <div id="outer">
+            <div id="inner">
+                Difficulty: 
+                <button type="button" id="easy">Easy</button>
+                <button type="button" id="medium">Medium</button>
+                <button type="button" id="hard">Hard</button>
+            </div>
+        </div>
+    </div>
+    <div id="secret">
+        <div id="score"></div>
+        <div id="up"></div>
+            <button class="ibutton" type="button" id="finish">Submit</button>
+            <button class="ibutton" type="button" id="play">Play Again</button>
+    </div>
+    
+    <script src="memorize2.js"></script>
+</html>
