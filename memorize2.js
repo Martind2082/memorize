@@ -1,3 +1,6 @@
+
+
+
 //first screen
 let visible = document.getElementById('visible');
 //second screen with input boxes
@@ -7,15 +10,6 @@ let button = document.querySelectorAll('button');
 //divisor = number getting divided, determines amount of words in each group
 let divisor = 0;
 
-let height = window.innerHeight;
-function setWidth(x) {
-    if (x.matches) {
-        document.getElementById('visible').style.height = `${height}px` * 0.8;
-        document.getElementById('secret').style.height = `${height}px` * 0.8;
-    }
-}
-var x = window.matchMedia("(orientation: portrait)");
-setWidth(x);
 
 
 
@@ -84,6 +78,10 @@ function clicked() {
     }
 
     document.querySelector('#up').innerHTML = copy.join(' '); //loads in 2nd page ready for user input
+
+
+
+
 
     //after user finishes, this scores and corrects the user
     document.getElementById('finish').onclick = function() {
