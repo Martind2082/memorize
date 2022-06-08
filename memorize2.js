@@ -7,6 +7,18 @@ let button = document.querySelectorAll('button');
 //divisor = number getting divided, determines amount of words in each group
 let divisor = 0;
 
+let height = window.innerHeight;
+function setWidth(x) {
+    if (x.matches) {
+        document.getElementById('visible').style.height = `${height}px` * 0.8;
+        document.getElementById('secret').style.height = `${height}px` * 0.8;
+    }
+}
+var x = window.matchMedia("(orientation: portrait)");
+setWidth(x);
+
+
+
 button.forEach(element => {
     //get divisor depending on difficulty mode
     element.onclick = function() {
@@ -19,14 +31,34 @@ button.forEach(element => {
         else if (event.target.id === 'hard') {
             divisor = 2;
         }
-        clicked();
+        checkLength();
     }
 });
+
+function checkLength() {
+    let input = document.getElementById('input').value;
+    input = input.trim().split(' ');
+    let length = input.length;
+        if (length < divisor) {
+            let div = document.createElement('div');
+            div.classList.add('short');
+            div.textContent = 'Input is too short';
+            document.body.append(div);
+            setTimeout(() => {
+                div.remove();
+            }, 6000);
+        } else {
+            clicked();
+        }
+}
+
+
+
 function clicked() {
     //get user input
     let input = document.getElementById('input').value;
     visible.style.display = 'none';
-    secret.style.display = 'block'; //turns on second screen
+    secret.style.display = 'flex'; //turns on second screen
     input = input.trim();
     input = input.split('');
     let regex = /[,;:]/;
@@ -60,7 +92,7 @@ function clicked() {
         
         let counter = 0; //counter keeps track of user's correct answers
         input.forEach(element => {
-            if (element.value.toLowerCase() === array[element.id].toLowerCase()) {
+            if (element.value.toLowerCase().trim() === array[element.id].toLowerCase()) {
                 document.getElementById(`span${element.id}`).innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/2048px-Eo_circle_green_checkmark.svg.png"></img>';
                 document.getElementById(`${element.id}`).style.backgroundColor = '#42f55d';
                 counter++;
