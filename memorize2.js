@@ -92,11 +92,13 @@ function clicked() {
         input.forEach(element => {
             if (element.value.toLowerCase().trim() === array[element.id].toLowerCase()) {
                 document.getElementById(`span${element.id}`).innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/2048px-Eo_circle_green_checkmark.svg.png"></img>';
+                document.getElementById(`span${element.id}`).background = 'transparent';
                 document.getElementById(`${element.id}`).style.backgroundColor = '#42f55d';
                 counter++;
                 document.getElementById(`error${element.id}`).style.display = 'none';
             } else {
                 document.getElementById(`span${element.id}`).innerHTML = '<img src="https://toppng.com/uploads/preview/red-x-in-circle-x-ico-11563249170jvl0jhe7df.png"></img>';
+                document.getElementById(`span${element.id}`).background = 'transparent';
                 document.getElementById(`${element.id}`).style.backgroundColor = '#f53b31';
                 document.getElementById(`error${element.id}`).textContent = 'reveal answer';
                 document.getElementById(`error${element.id}`).style.backgroundColor = 'gray';
@@ -106,6 +108,7 @@ function clicked() {
 
         //display score
         document.getElementById('score').style.display = 'block';
+        document.getElementById('score').style.borderBottom = '2px solid #195e94';
         document.getElementById('score').textContent = `${counter} out of ${amount} correct`;
 
         //if correct amount = total amount of input boxes, then allow for play again
