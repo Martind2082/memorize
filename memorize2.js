@@ -126,8 +126,12 @@ function clicked() {
         let error = document.querySelectorAll('.error');
         error.forEach(element => {
             element.onclick = function() {
-                let num = event.target.id.slice(5);
-                element.innerHTML = array[num];
+                if (element.textContent === 'reveal answer') {
+                    let num = event.target.id.slice(5);
+                    element.innerHTML = array[num];
+                } else {
+                    element.textContent = 'reveal answer'
+                }
             }
         })
     }

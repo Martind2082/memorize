@@ -240,3 +240,6 @@ img {
 .hover {
     cursor: pointer;
 }
+.error:hover {
+    cursor: pointer;
+}
