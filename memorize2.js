@@ -1,6 +1,5 @@
 
 
-
 //first screen
 let visible = document.getElementById('visible');
 //second screen with input boxes
@@ -16,6 +15,7 @@ let divisor = 0;
 button.forEach(element => {
     //get divisor depending on difficulty mode
     element.onclick = function() {
+        document.getElementById('goback').style.display = 'block';
         if (event.target.id === 'easy') {
             divisor = 5;
         }
@@ -46,7 +46,10 @@ function checkLength() {
         }
 }
 
-
+document.getElementById('goback').addEventListener('click', () => {
+    visible.style.display = 'block';
+    secret.style.display = 'none';
+})
 
 function clicked() {
     //get user input
@@ -115,6 +118,7 @@ function clicked() {
         if (counter === amount) {
             setTimeout(() => {
                 document.getElementById('play').style.display = 'block';
+                document.getElementById('goback').style.display = 'none';
             }, 800); 
         }
 
